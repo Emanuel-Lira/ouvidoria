@@ -1,100 +1,115 @@
 import os
-
-menu = """
-Ouvidoria.gg
-
-[a] adicionar
-[e] excluir
-[l] listar
-[t] alterar
-[s] sair
-
-digite a opção:
-"""
 mensagens = []
+def menu():
+    return input( """
+===============MENU==============
+    [a] adicionar
+    [e] excluir
+    [l] listar
+    [t] alterar
+    [s] sair
+================================  
+escolha uma opção: 
+    """).strip().lower()
 
-while True:
+def adicionar():
+    global mensagens
+    novaMensagem = input("Digite uma nova mensagem para a ouvidoria: ").strip().title()
 
-    opcao = input(menu).lower()
-    
-    if opcao == "a": #adicionar
+    if novaMensagem: 
+        mensagens.append(novaMensagem)
 
-        novaMensagem = input("Digite uma nova mensagem para a ouvidoria: ").strip().title()
+        print(f'Mensagem enviada!')
+                        
+    else:
+        print(f'Digite uma mensagem válida! ')
 
-        if novaMensagem == "": 
-                    print(f'Digite uma mensagem válida! ')
-                    
-        else:
-                mensagens.append(novaMensagem)
+def excluir():
+    global mensagens
+    if not mensagens: 
 
-                print(f'Mensagem enviada!')
-    
-    elif opcao == "e": #excluir
-
-        if not mensagens: 
-
-                print(f'Não tem mensagens para excluir')
+        print(f'Não tem mensagens para excluir')
         
+    else:
+            
+        excluirMensagem = input('\ndigite a mensagem que voce deseja excluir: ').strip().title()
+
+        if excluirMensagem in mensagens: 
+            mensagens.remove(excluirMensagem)
+            print(f'mensagem apagada com sucesso\n')
         else:
-            
-            excluirMensagem = input('\ndigite a mensagem que voce deseja excluir: ').strip().title()
+            print('A mensagem não foi encontrada') 
 
-            if excluirMensagem in mensagens: 
-                mensagens.remove(excluirMensagem)
-                print(f'mensagem apagada com sucesso\n')
-            else:
-                print('A mensagem não foi encontrada')         
+def listar():
+    global mensagens
+    if not mensagens: 
+        print("Não existem mensagens para listar")
+    else:
+        print('============LISTA DE MENSAGENS==============')
+        #print('\n'.join( mensagens))
+        for indice, mensagem in enumerate(mensagens, start=1):
+            print(f'{indice} -- mensagem --> {mensagem}')
+        print('==========================================')
 
-    elif opcao == "l": #listar
-
-            numero = 1
-            if not mensagens: 
-                print("Não existem mensagens para listar")
-            else:
-                print('============LISTA DE MENSAGENS==============')
-                print('\n'.join( mensagens))
-                print('==========================================')
-            
-    elif opcao == "t": #alterar
-
-        if not mensagens:
+def alterar():
+    global mensagens
+    if not mensagens:
 
                 print(f'Não existem mensagens para alterar.')
-        else:
+    else:
 
-            try:
+        try:
 
-                indexAlterar = int(input('\nDigite o índice da mensagem que você quer alterar: '))
+            indexAlterar = int(input('\nDigite o índice da mensagem que você quer alterar: '))
+            
+            if indexAlterar < 1 or indexAlterar > len(mensagens):
 
-            except:
-                
-                print('a mensagem não foi alterada. \nDigite apenas numero inteiro!')
-                continue
-
-            if indexAlterar < 1 or indexAlterar > len(mensagens): #se digitar um indice menor/maior do que a quantidade de indices na lista
-
-                    print("Índice inválido.")
+                print('indice invalido')
+                #se digitar um indice menor/maior do que a quantidade de indices na lista 
             else:
+                addMensagem = input("Digite a nova mensagem: ").strip().title()
 
-                    addMensagem = input("Digite a nova mensagem: ").strip().title()
+                if not addMensagem : 
 
-                    if addMensagem == "": 
+                    print(f'Digite uma mensagem valida\n')
 
-                        print(f'Digite uma mensagem valida\n')
+                else:
+                    mensagens[indexAlterar - 1] = addMensagem
 
-                    else:
-                        mensagens[indexAlterar - 1] = addMensagem
+                    print(f'Mensagem alterada com sucesso.')
+        except:
+                
+            print('a mensagem não foi alterada. \nDigite apenas numero inteiro!')
 
-                        print(f'Mensagem alterada com sucesso.')
-    
-    elif opcao == "q": #sair
         
-        os.system('cls' if os.name == 'nt' else 'clear')
+
+            print("Índice inválido.")
+
+def sair():
+    os.system('cls' if os.name == 'nt' else 'clear')
         #print('\n' * 2000) 
         #os.system('cls')       
-        print('Ouvidoria Finalizada!\n')
-        print(f'Obrigado por usar a Ouvidoria!') 
-        break
+    print('Ouvidoria Finalizada!\n')
+    print(f'Obrigado por usar a Ouvidoria!') 
 
-    else:
-        print('Opção invalida! Tente novamente.')
+def main():
+    
+    while True:
+
+        opcao = menu()
+
+        if opcao == "a":
+            adicionar()
+
+        elif opcao == "e":
+            excluir()
+        elif opcao == "l":
+            listar()
+        elif opcao == "t": 
+            alterar()
+        elif opcao == "s":
+            sair()
+        else:
+            print('Valor invalido!')
+
+main()
