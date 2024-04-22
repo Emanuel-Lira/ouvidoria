@@ -1,4 +1,5 @@
 import os
+
 mensagens = []
 def menu():
     return input( """
