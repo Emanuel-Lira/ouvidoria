@@ -1,5 +1,3 @@
-
-=======
 # Ouvidoria
 
 Este é um simples programa de console em Python para gerenciar uma ouvidoria. Ele permite aos usuários adicionar, excluir, listar e alterar mensagens na ouvidoria.
