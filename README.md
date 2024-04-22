@@ -1,7 +1,23 @@
-Criando um Sistema de ouvidoria
+##Ouvidoria
 
-Primeira versão do sistema de ouvidoria, ainda sem conexão ao banco de dados e sem um código muito limpo. Esse sistema foi solicitado na faculdade como uma forma de avaliar se o estudante compreendeu os assuntos básicos. 
+Este é um simples programa de console em Python para gerenciar uma ouvidoria. Ele permite aos usuários adicionar, excluir, listar e alterar mensagens na ouvidoria.
 
-📚 Aprendizado
+##Funcionalidades
 
-Com esse projeto, fixei todos os assuntos abordados na faculdade e no Bootcamp DIO em estruturas condicionais, operadores e listas. Esse codigo vai ter algumas alterações no futuro, como a função pesquisa, vai ser definido funções e conectado ao banco de dados MySQL
+Adicionar: Permite adicionar uma nova mensagem à ouvidoria.
+Excluir: Permite excluir uma mensagem existente na ouvidoria.
+Listar: Lista todas as mensagens presentes na ouvidoria.
+Alterar: Permite alterar uma mensagem existente na ouvidoria.
+Sair: Encerra o programa.
+
+##Como usar
+
+Execute o programa em um ambiente Python.
+Siga as instruções exibidas no console para realizar as operações desejadas.
+
+##Requisitos
+Python 3.x
+
+Autor
+Este projeto foi desenvolvido por [Emanuel Silva].
+
