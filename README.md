@@ -16,7 +16,7 @@ Execute o programa em um ambiente Python.
 Siga as instruções exibidas no console para realizar as operações desejadas.
 
 ## Requisitos
-Python 3.x 
+Python  
 SQL
 
 Autor
