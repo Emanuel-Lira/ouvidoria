@@ -21,4 +21,4 @@ Python 3.x
 Autor
 Este projeto foi desenvolvido por [Emanuel Silva].
 
->>>>>>> 6a4c5a278b389bb9c0f42ebeefc17c410b71ba37
+
