@@ -16,7 +16,8 @@ Execute o programa em um ambiente Python.
 Siga as instruções exibidas no console para realizar as operações desejadas.
 
 ## Requisitos
-Python 3.x
+Python 3.x 
+SQL
 
 Autor
 Este projeto foi desenvolvido por [Emanuel Silva].
